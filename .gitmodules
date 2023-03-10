@@ -1,0 +1,3 @@
+[submodule "deps/zig-objc"]
+	path = deps/zig-objc
+	url = https://github.com/mitchellh/zig-objc.git
