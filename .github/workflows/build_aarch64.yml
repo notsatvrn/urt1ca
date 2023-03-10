@@ -20,5 +20,8 @@ jobs:
         with:
           xcode-version: latest
 
+      - name: Setup Zig
+        run: brew install zig --HEAD
+
       - name: Build
         run: zig build --sysroot "$(xcrun --sdk iphoneos --show-sdk-path)" -Dtarget=aarch64-ios
