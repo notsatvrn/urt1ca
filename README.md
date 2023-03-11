@@ -10,10 +10,10 @@ A key for labeling the status of features/exploits may be found below.
 
 | Symbol | Meaning |
 | --- | --- |
-| x | Not yet implemented. May be dropped. |
-| ? | In progress. May be dropped. |
-| ! | Working, but with bugs. |
-| * | Working. |
+| x | Implementation not started. |
+| * | Implementation in progress. |
+| ? | Implemented but not tested. |
+| $ | Implemented and confirmed to work. |
 
 Also, PLEASE do not spam me asking about ETAs and such. I will not entertain this kind of behavior. This is a passion project of mine, I will not let it become a chore.
 

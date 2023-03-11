@@ -27,7 +27,6 @@ pub fn build(b: *std.Build) anyerror!void {
     exe.addCSourceFiles(&[_][]const u8{
         "src/AppMain.m",
         "src/AppDelegate.m",
-        "src/Versioning.m",
     }, &[0][]const u8{});
 
     exe.linkLibC();

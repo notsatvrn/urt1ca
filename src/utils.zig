@@ -2,7 +2,7 @@ const versioning = @import("versioning.zig");
 //const objc = @import("objc");
 const std = @import("std");
 
-var gpa = std.heap.GeneralPurposeAllocator(){};
+var gpa = std.heap.GeneralPurposeAllocator(.{}){};
 pub var alloc = gpa.allocator();
 
 // WIP
@@ -17,14 +17,14 @@ pub fn respring() void {
     }
 }
 
-pub fn error(comptime fmt: []const u8, args: anytype) void {
+pub fn errorf(comptime fmt: []const u8, args: anytype) void {
     std.debug.print("ERROR: {}", .{std.fmt.AllocPrint(alloc, fmt, args)});
 }
 
-pub fn warn(comptime fmt: []const u8, args: anytype) void {
+pub fn warnf(comptime fmt: []const u8, args: anytype) void {
     std.debug.print("WARN: {}", .{std.fmt.AllocPrint(alloc, fmt, args)});
 }
 
-pub fn info(comptime fmt: []const u8, args: anytype) void {
+pub fn infof(comptime fmt: []const u8, args: anytype) void {
     std.debug.print("INFO: {}", .{std.fmt.AllocPrint(alloc, fmt, args)});
 }
