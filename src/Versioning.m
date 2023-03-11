@@ -1,5 +1,7 @@
 #import <Foundation/Foundation.h>
 
 NSOperatingSystemVersion getCurrentVersion() {
-    return [[NSProcessInfo processInfo] operatingSystemVersion];
+    @autoreleasepool {
+        return [[NSProcessInfo processInfo] operatingSystemVersion];
+    }
 }

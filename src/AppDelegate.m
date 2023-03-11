@@ -4,23 +4,23 @@
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(id)options {
-  CGRect mainScreenBounds = [[UIScreen mainScreen] bounds];
-  self.window = [[UIWindow alloc] initWithFrame:mainScreenBounds];
-  UIViewController *viewController = [[UIViewController alloc] init];
-  viewController.view.backgroundColor = [UIColor blackColor];
-  viewController.view.frame = mainScreenBounds;
+    CGRect mainScreenBounds = [[UIScreen mainScreen] bounds];
+    self.window = [[UIWindow alloc] initWithFrame:mainScreenBounds];
+    UIViewController *viewController = [[UIViewController alloc] init];
+    viewController.view.backgroundColor = [UIColor blackColor];
+    viewController.view.frame = mainScreenBounds;
+    
+    NSString* msg = [NSString stringWithString:@"hello"];
+    
+    UILabel *label = [[UILabel alloc] initWithFrame:mainScreenBounds];
+    [label setText:msg];
+    [viewController.view addSubview: label];
 
-  NSString* msg = [NSString stringWithString:@"hello"];
+    self.window.rootViewController = viewController;
 
-  UILabel *label = [[UILabel alloc] initWithFrame:mainScreenBounds];
-  [label setText:msg];
-  [viewController.view addSubview: label];
+    [self.window makeKeyAndVisible];
 
-  self.window.rootViewController = viewController;
-
-  [self.window makeKeyAndVisible];
-
-  return YES;
+    return YES;
 }
 
 @end

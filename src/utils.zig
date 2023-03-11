@@ -1,5 +1,9 @@
-const objc = @import("objc");
 const versioning = @import("versioning.zig");
+//const objc = @import("objc");
+const std = @import("std");
+
+var gpa = std.heap.GeneralPurposeAllocator(){};
+pub var alloc = gpa.allocator();
 
 // WIP
 // https://adamdemasi.com/2019/08/25/respring-the-right-way-followup.html
@@ -11,4 +15,16 @@ pub fn respring() void {
     } else {
         // 8.0 - 9.2
     }
+}
+
+pub fn error(comptime fmt: []const u8, args: anytype) void {
+    std.debug.print("ERROR: {}", .{std.fmt.AllocPrint(alloc, fmt, args)});
+}
+
+pub fn warn(comptime fmt: []const u8, args: anytype) void {
+    std.debug.print("WARN: {}", .{std.fmt.AllocPrint(alloc, fmt, args)});
+}
+
+pub fn info(comptime fmt: []const u8, args: anytype) void {
+    std.debug.print("INFO: {}", .{std.fmt.AllocPrint(alloc, fmt, args)});
 }

@@ -24,9 +24,15 @@ pub fn build(b: *std.Build) anyerror!void {
 
     b.default_step.dependOn(&exe.step);
 
-    exe.addCSourceFiles(&[_][]const u8{ "src/AppMain.m", "src/AppDelegate.m" }, &[0][]const u8{});
+    exe.addCSourceFiles(&[_][]const u8{
+        "src/AppMain.m",
+        "src/AppDelegate.m",
+        "src/Versioning.m",
+    }, &[0][]const u8{});
+
     exe.linkLibC();
     exe.linkFramework("Foundation");
+    exe.linkFramework("IOKit");
     exe.linkFramework("UIKit");
     exe.addSystemIncludePath("/usr/include");
     exe.addLibraryPath("/usr/lib");
