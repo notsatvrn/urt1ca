@@ -26,12 +26,13 @@ Also, PLEASE do not spam me asking about ETAs and such. I will not entertain thi
 
 - 9.0-9.3.4 (Trident) (x)
 - 9.3.5-9.3.6 (phoenix) (x)
-- 10-
-- 12.0-14.3 (cicuta_virosa)
-- 14.4-14.7 (IOMFB exploit w/ CVE-2021-30807)
-- 15.0-15.1.1 (desc_race OR multicast_bytecopy) (could maybe cover other iOS 14 versions)
-- (ON A10+) 12.1-15.5 (weightBufs)
-- (ON A10+) 15.6-15.7.1 (weightBufs + DER Entitlements) (still researching)
+- 10-12.2 + 12.4 (sock_port) (x)
+- 12.0-13.3 (time_waste) (x)
+- 12.0-14.3 (cicuta_virosa) (x)
+- 14.4-14.7 (IOMFB exploit w/ CVE-2021-30807) (x)
+- 15.0-15.1.1 (desc_race OR multicast_bytecopy) (x)
+- (ON A10+) 12.1-15.5 (weightBufs) (x)
+- (ON A10+) 15.6-15.7.1 (weightBufs + DER Entitlements) (x)
 
 ## Credits
 
