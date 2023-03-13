@@ -1,6 +1,8 @@
 #import "AppDelegate.h"
 #import <UIKit/UIKit.h>
 
+char* versionString();
+
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(id)options {
@@ -10,7 +12,7 @@
     viewController.view.backgroundColor = [UIColor blackColor];
     viewController.view.frame = mainScreenBounds;
     
-    NSString* msg = [NSString stringWithString:@"hello"];
+    NSString* msg = [NSString stringWithUTF8String:versionString()];
     
     UILabel *label = [[UILabel alloc] initWithFrame:mainScreenBounds];
     [label setText:msg];

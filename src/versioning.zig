@@ -1,6 +1,8 @@
 const objc = @import("objc");
 const std = @import("std");
 
+var current = Version.getCurrent();
+
 pub const Version = extern struct {
     major: i64,
     minor: i64,
@@ -9,7 +11,7 @@ pub const Version = extern struct {
     pub fn getCurrent() Version {
         const NSProcessInfo = objc.Class.getClass("NSProcessInfo").?;
         const info = NSProcessInfo.msgSend(objc.Object, objc.sel("processInfo"), .{});
-        return info.getProperty("operatingSystemVersion").?.value;
+        return info.getProperty(Version, "operatingSystemVersion");
     }
 
     pub fn toString(v: Version) []const u8 {
@@ -17,11 +19,23 @@ pub const Version = extern struct {
         return std.fmt.bufPrint(&buf, "{}.{}.{}", .{v.major, v.minor, v.patch}) catch "";
     }
 
-    pub fn inRange(v: Version, comptime min: Version, comptime max: Version) bool {
-        return versionAtLeast(v, min) and versionAtMost(v, max);
+    pub fn inRangeInclusive(v: Version, comptime min: Version, comptime max: Version) bool {
+        return (versionAfter(v, min) and versionBefore(v, max)) or (v == min or v == max);
+    }
+
+    pub fn inRangeExclusive(v: Version, comptime min: Version, comptime max: Version) bool {
+        return versionAfter(v, min) and versionBefore(v, max);
     }
 
     pub fn versionAtLeast(v: Version, comptime min: Version) bool {
+        return versionAfter(v, min) or v == min;
+    }
+
+    pub fn versionAtMost(v: Version, comptime max: Version) bool {
+        return versionBefore(v, max) or v == max;
+    }
+
+    pub fn versionAfter(v: Version, comptime min: Version) bool {
         if (v.major > min.major) {
             return true;
         } else if (v.major < min.major) {
@@ -34,10 +48,10 @@ pub const Version = extern struct {
             return false;
         }
 
-        return v.patch >= min.patch;
+        return v.patch > min.patch;
     }
 
-    pub fn versionAtMost(v: Version, comptime max: Version) bool {
+    pub fn versionBefore(v: Version, comptime max: Version) bool {
         if (v.major < max.major) {
             return true;
         } else if (v.major > max.major) {
@@ -50,6 +64,6 @@ pub const Version = extern struct {
             return false;
         }
 
-        return v.patch <= max.patch;
+        return v.patch < max.patch;
     }
 };

@@ -1,41 +1,43 @@
 # urt1ca
 
-A semi-untethered jailbreak for iOS 9-15.1.1.
+A semi-untethered jailbreak for iOS 9.0-15.1.1.
 
-## IMPORTANT INFO
+## Important Info
 
 This jailbreak is HIGHLY experimental! Exploits may be dropped or added during the development process.
 
-A key for labeling the status of features/exploits may be found below.
+Explanations of statuses on features/exploits may be found below.
 
-| Symbol | Meaning |
+| Status | Meaning |
 | --- | --- |
-| x | Implementation not started. |
-| * | Implementation in progress. |
-| ? | Implemented but not tested. |
-| $ | Implemented and confirmed to work. |
-
-Also, PLEASE do not spam me asking about ETAs and such. I will not entertain this kind of behavior. This is a passion project of mine, I will not let it become a chore.
+| `?` | In research. |
+| `X` | Implementation not started. |
+| `*` | Implementation in progress. |
+| `!` | Implemented but not tested. |
+| `$` | Implemented and confirmed to work. |
 
 ## Features
 
 - Support for many versions and devices.
-- Untether for iOS 9.0-14.? (x)
+- Untether for iOS 9.0-14.? (`?`).
 
 ## iOS Version Support
 
-- 9.0-9.3.4 (Trident) (x)
-- 9.3.5-9.3.6 (phoenix) (x)
-- 10-12.2 + 12.4 (sock_port) (x)
-- 12.0-13.3 (time_waste) (x)
-- 12.0-14.3 (cicuta_virosa) (x)
-- 14.4-14.7 (IOMFB exploit w/ CVE-2021-30807) (x)
-- 15.0-15.1.1 (desc_race OR multicast_bytecopy) (x)
-- (ON A10+) 12.1-15.5 (weightBufs) (x)
-- (ON A10+) 15.6-15.7.1 (weightBufs + DER Entitlements) (x)
+Support is planned for iOS 9.0-15.1.1 and 15.2-15.7.1 on A10+.
+
+| Versions | Exploits | Status |
+| --- | --- | --- |
+| 9.0-9.3.4 | Trident | `?` |
+| 9.3.5-9.3.6 | phoenix | `?` |
+| 10.0-12.0 | sock_port | `X` |
+| 12.0-14.3 | cicuta_virosa | `X` |
+| 14.4-14.7 | IOMFB exploit (CVE-2021-30807) | `?` |
+| 15.0-15.1.1 | desc_race / multicast_bytecopy | `?` |
+| 15.2-15.5 (A10+) | weightBufs | `?` |
+| 15.6-15.7.1 (A10+) | weightBufs + DER Entitlements | `?` |
 
 ## Credits
 
-- [zig-ios-example](https://github.com/kubkon/zig-ios-example) for figuring out the structure of the project.
+- [zig-ios-example](https://github.com/kubkon/zig-ios-example) for the structure of the project.
 - [Siguza](https://github.com/Siguza) for [IOKit headers](https://github.com/Siguza/iokit-utils/blob/master/src/iokit.h).
 - [Brandon Azad](https://github.com/bazad) for [IOSurface definitions](https://bugs.chromium.org/p/project-zero/issues/detail?id=1986#c4).
